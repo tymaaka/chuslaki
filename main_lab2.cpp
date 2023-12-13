@@ -194,27 +194,26 @@ syst[i][j] = Jak[i][j];
             answer[i] += delta[i];
         }
        
-        double max1 = 0;
-        double max2 = 0;
+        double delta1 = 0;
+        double delta2 = 0;
         for (int i = 0; i < n; i++)
         {
-            if (abs(extr_vec[i]) > max1)
-                max1 = abs(extr_vec[i]);
+            if (abs(extr_vec[i]) > delta1)
+                delta1 = abs(extr_vec[i]);
 
             if (abs(answer[i]) < 1)
             {
-                if (abs(delta[i]) > max2)
-                    max2 = abs(delta[i]);
+                if (abs(delta[i]) > delta2)
+                    delta2 = abs(delta[i]);
             }
             if (abs(delta[i] >= 1))
             {
-                if (abs(delta[i] / answer[i]) > max2)
-                    max2 = abs(delta[i]);
+                if (abs(delta[i] / answer[i]) > delta2)
+                    delta2 = abs(delta[i]);
             }
         }
        
-        delta1 = max1;
-        delta2 = max2;
+      
        
         x1 = answer[0];
         x2 = answer[1];
@@ -256,7 +255,6 @@ int main()
     vector<double> answer(2);
     x1 = 0.5;
     x2 = 0.2;
-    int n = 2;
     answer=Newton_method(x1, x2, 2);
     cout << endl;
     cout << "Ответ: ";
